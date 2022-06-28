@@ -1,0 +1,9 @@
+nav .container{
+    display: flex;
+    justify-content: space-between;
+}
+nav ul li{
+    list-style: none;
+    display: inline;
+    padding-right: 20px;
+}
