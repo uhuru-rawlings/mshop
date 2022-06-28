@@ -14,3 +14,53 @@
     border-color: #ffffff;
     color: #ffffff;
 }
+.flex_movie_content{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    row-gap: 20px;
+}
+.movie-item{
+    width: 200px;
+    position: relative;
+    border:none;
+}
+.card .action{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    align-items: center;
+    border-radius: 50%;
+    padding-top: 4px;
+    background-color: rgba(255,255,255,.6);
+    cursor: pointer;
+}
+.action:hover .image_section{
+    background-color: rgb(19,19,19);
+}
+.card .image_section{
+    height: 240px;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 15px;
+    transition: 0.75s ease-out;
+}
+.card .rattings{
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    margin-top: -20px;
+    background-color: #415c3e;
+    color: #ffffff;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    padding-top: 7px;
+}
+.card .image_section img{
+    border-radius: 15px;
+}
