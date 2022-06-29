@@ -25,6 +25,8 @@
     width: 200px;
     position: relative;
     border:none;
+    border-radius: 15px;
+    background-color:rgba(211, 211, 211, .4);
 }
 .card .action{
     position: absolute;
@@ -38,6 +40,9 @@
     padding-top: 4px;
     background-color: rgba(255,255,255,.6);
     cursor: pointer;
+}
+.action:hover {
+    color: red;
 }
 .action:hover .image_section{
     background-color: rgb(19,19,19);
@@ -60,6 +65,9 @@
     text-align: center;
     align-items: center;
     padding-top: 7px;
+}
+.card .details{
+    margin: 20px;
 }
 .card .image_section img{
     border-radius: 15px;
