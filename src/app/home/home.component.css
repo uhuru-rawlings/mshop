@@ -44,7 +44,7 @@
 .action:hover {
     color: red;
 }
-.action:hover .image_section{
+.action:hover .image_sections{
     background-color: rgb(19,19,19);
 }
 .card .image_section{
