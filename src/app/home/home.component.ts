@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PupolarService } from '../services/pupolar.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,6 +9,8 @@ import { PupolarService } from '../services/pupolar.service';
 })
 export class HomeComponent implements OnInit {
   movies:any;
+  display:any = "hide";
+  ids:any;
   constructor(private PupolarService:PupolarService) { }
 
   ngOnInit(): void {
@@ -17,7 +20,9 @@ export class HomeComponent implements OnInit {
   showMovies( ){
     let item_vars = localStorage.getItem("movies");
     if(item_vars){
-      this.movies = JSON.parse(item_vars);
+      let data_obje = JSON.parse(item_vars)
+      this.movies = data_obje.results;
+      console.log(this.movies);
     }else{
       this.PupolarService.getMovies().subscribe((data:any) => {
         // this.movies = data;
@@ -26,4 +31,13 @@ export class HomeComponent implements OnInit {
     }
   }
 
+
+  toggleDetails(id:any){
+    this.ids = id;
+    if(this.display == "hide"){
+      this.display = "show"
+    }else{
+      this.display = "hide"
+    }
+  }
 }

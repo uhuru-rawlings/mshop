@@ -16,17 +16,19 @@
 }
 .flex_movie_content{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin-top: 30px;
     margin-bottom: 30px;
     row-gap: 20px;
+    column-gap: 20px;
 }
 .movie-item{
     width: 200px;
     position: relative;
     border:none;
     border-radius: 15px;
-    background-color:rgba(211, 211, 211, .4);
+    background-color:rgba(211, 211, 211, .2);
 }
 .card .action{
     position: absolute;
@@ -40,6 +42,7 @@
     padding-top: 4px;
     background-color: rgba(255,255,255,.6);
     cursor: pointer;
+    z-index: 6;
 }
 .action:hover {
     color: red;
@@ -71,4 +74,27 @@
 }
 .card .image_section img{
     border-radius: 15px;
+}
+.more_details{
+    width:90%;
+    margin: 5px 5px 0px 10px;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    background-color: #ffffff;
+    height: 200px;
+    overflow-y: scroll;
+    border-radius: 5px;
+    font-size: 12px;
+}
+/* .more_details::-webkit-scrollbar{
+    width: 4px;
+    color: #415c3e;
+} */
+.scroll_top{
+    width: 40px;
+    height: 40px;
+    background-color: #415c3e;
+    color: #ffffff;
+    border-radius: 50%;
 }

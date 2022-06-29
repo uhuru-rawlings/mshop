@@ -12,20 +12,30 @@
 </div>
 <div class="container movie-content">
     <div class="flex_movie_content">
-        <div class="card movie-item">
-            <div class="action">
+        <div class="card movie-item" *ngFor="let movie of movies">
+            <div class="action" (click)="toggleDetails(movie.id)">
                 <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+            <div class="more_details" *ngIf="display == 'show' && movie.id == ids">
+                <div class="title"><b>{{ movie.title }}</b></div>
+                <div class="adult" *ngIf="!movie.adult"><b>GE</b></div>
+                <div class="adult" *ngIf="movie.adult">18+</div>
+                <div class="overview">{{ movie.overview }}</div>
             </div>
             <div class="image_sections">
                 <div class="image_section">
                     <img src="../../assets/images/moviesbg.jpg" width="100%" height="100%" alt="movie avator">
                 </div>
             </div>
-            <div class="rattings">80%</div>
+            <div class="rattings">{{ movie.popularity | percentages }}%</div>
             <div class="details">
-                <div><b>The Takedown</b></div>
-                <div class="text-title">12/13/2012</div>
+                <div><b>{{ movie.original_title }}</b></div>
+                <div class="text-title">{{movie.release_date }}</div>
             </div>
         </div>
     </div>
+</div>
+
+<div class="scroll_top">
+    <i class="fa-solid fa-arrow-up"></i>
 </div>
