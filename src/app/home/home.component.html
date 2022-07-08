@@ -2,20 +2,17 @@
     <app-navbar></app-navbar>
     <div class="container">
         <div class="search_form">
-            <form action="" autocomplete="off" method="post">
+            <form action="" autocomplete="off" (submit)="searchMovies()" method="post">
                 <div class="form-group">
-                    <input type="search" name="search_item" id="search_item" class="search_item form-control shadow-none" placeholder="Enter item">
+                    <input type="search" [(ngModel)]="search_item" name="search_item" id="search_item" class="search_item form-control shadow-none" placeholder="Enter item">
                 </div>
             </form>
         </div>
     </div>
 </div>
-<div class="container movie-content">
+<div class="container movie-content" *ngIf="search">
     <div class="flex_movie_content">
-        <div class="card movie-item" *ngFor="let movie of movies">
-            <div class="action" (click)="toggleDetails(movie.id)">
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-            </div>
+        <div class="card movie-item" *ngFor="let movie of search">
             <div class="more_details" *ngIf="display == 'show' && movie.id == ids">
                 <div class="title"><b>{{ movie.title }}</b></div>
                 <div class="adult" *ngIf="!movie.adult"><b>GE</b></div>
@@ -23,8 +20,38 @@
                 <div class="overview">{{ movie.overview }}</div>
             </div>
             <div class="image_sections">
+                <div class="action" (click)="toggleDetails(movie.id)">
+                    <i class="fa-solid fa-ellipsis-vertical" *ngIf="display == 'hide'"></i>
+                    <i class="fa-solid fa-xmark" *ngIf="display == 'show'"></i>
+                </div>
                 <div class="image_section">
-                    <img src="../../assets/images/moviesbg.jpg" width="100%" height="100%" alt="movie avator">
+                    <img src='{{ "https://image.tmdb.org/t/p/w500" + movie.poster_path}}' width="100%" height="100%" alt="{{ movie.original_title }}">
+                </div>
+            </div>
+            <div class="rattings">{{ movie.popularity | percentages }}%</div>
+            <div class="details">
+                <div><b>{{ movie.original_title }}</b></div>
+                <div class="text-title">{{movie.release_date }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container movie-content">
+    <div class="flex_movie_content">
+        <div class="card movie-item" *ngFor="let movie of movies">
+            <div class="more_details" *ngIf="display == 'show' && movie.id == ids">
+                <div class="title"><b>{{ movie.title }}</b></div>
+                <div class="adult" *ngIf="!movie.adult"><b>GE</b></div>
+                <div class="adult" *ngIf="movie.adult">18+</div>
+                <div class="overview">{{ movie.overview }}</div>
+            </div>
+            <div class="image_sections">
+                <div class="action" (click)="toggleDetails(movie.id)">
+                    <i class="fa-solid fa-ellipsis-vertical" *ngIf="display == 'hide'"></i>
+                    <i class="fa-solid fa-xmark" *ngIf="display == 'show'"></i>
+                </div>
+                <div class="image_section">
+                    <img src='{{ "https://image.tmdb.org/t/p/w500" + movie.poster_path}}' width="100%" height="100%" alt="{{ movie.original_title }}">
                 </div>
             </div>
             <div class="rattings">{{ movie.popularity | percentages }}%</div>
@@ -36,6 +63,6 @@
     </div>
 </div>
 
-<div class="scroll_top">
+<div class="scroll_top" (click)="scrollToTop()">
     <i class="fa-solid fa-arrow-up"></i>
 </div>

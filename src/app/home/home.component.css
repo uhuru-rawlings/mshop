@@ -29,6 +29,7 @@
     border:none;
     border-radius: 15px;
     background-color:rgba(211, 211, 211, .2);
+    overflow: hidden;
 }
 .card .action{
     position: absolute;
@@ -44,14 +45,15 @@
     cursor: pointer;
     z-index: 6;
 }
-.action:hover {
-    color: red;
+.action:hover .image_sections{
+    background-color: rgba(211, 211, 211, .6);
 }
 .action:hover .image_sections{
     background-color: rgb(19,19,19);
 }
 .card .image_section{
     height: 240px;
+    overflow: hidden;
     width: 100%;
     object-fit: contain;
     border-radius: 15px;
@@ -67,13 +69,14 @@
     border-radius: 50%;
     text-align: center;
     align-items: center;
-    padding-top: 7px;
+    padding-top: 9px;
 }
 .card .details{
     margin: 20px;
 }
 .card .image_section img{
     border-radius: 15px;
+    transition: .75s ease-out;
 }
 .more_details{
     width:90%;
@@ -97,4 +100,18 @@
     background-color: #415c3e;
     color: #ffffff;
     border-radius: 50%;
+    position: fixed;
+    right: 20px;
+    bottom: 0;
+    text-align: center;
+    align-items: center;
+    padding-top: 10px;
+    cursor: pointer;
+}
+.image_section:hover img{
+   width:250px;
+   height:300px;
+}
+.card .rattings{
+    font-size: 14px;
 }
