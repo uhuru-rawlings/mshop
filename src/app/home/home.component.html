@@ -1,13 +1,17 @@
 <div class="top_nav_section">
     <app-navbar></app-navbar>
-    <div class="container">
-        <div class="search_form">
-            <form action="" autocomplete="off" (submit)="searchMovies()" method="post">
-                <div class="form-group">
-                    <input type="search" [(ngModel)]="search_item" name="search_item" id="search_item" class="search_item form-control shadow-none" placeholder="Enter item">
+    <div class="content_no_nav">
+        <div class="blur_backg">
+            <div class="container">
+                    <div class="search_form">
+                        <form action="" autocomplete="off" (submit)="searchMovies()" method="post">
+                            <div class="form-group">
+                                <input type="search" [(ngModel)]="search_item" name="search_item" id="search_item" class="search_item form-control shadow-none" placeholder="Enter movie name">
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </form>
-        </div>
+            </div>
     </div>
 </div>
 <div class="container movie-content" *ngIf="search">

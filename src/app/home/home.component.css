@@ -115,3 +115,15 @@
 .card .rattings{
     font-size: 14px;
 }
+/* .content_no_nav{
+    position: relative;
+    z-index: 6;
+}
+.blur_backg{
+    background-color: rgba(19, 19, 19, .5);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+} */
